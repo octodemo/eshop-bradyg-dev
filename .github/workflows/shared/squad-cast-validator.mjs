@@ -162,6 +162,20 @@ function extractLocalReferences(markdown) {
   return [...new Set(references)];
 }
 
+function stripHtmlComments(markdown) {
+  let visible = '';
+  let cursor = 0;
+  while (cursor < markdown.length) {
+    const start = markdown.indexOf('<!--', cursor);
+    if (start === -1) return visible + markdown.slice(cursor);
+    visible += markdown.slice(cursor, start);
+    const end = markdown.indexOf('-->', start + 4);
+    if (end === -1) return visible;
+    cursor = end + 3;
+  }
+  return visible;
+}
+
 /**
  * Extract the body of a single `## Heading` section (up to the next `##`
  * heading or end of document). Requires the heading to appear exactly once;
@@ -471,7 +485,7 @@ export function validateCastTree({ root, payloadPath }) {
         name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
       ]),
     );
-    const visibleMarkdown = markdown.replace(/<!--[\s\S]*?-->/g, '');
+    const visibleMarkdown = stripHtmlComments(markdown);
     for (const match of visibleMarkdown.matchAll(/\bsquad:([a-z][a-z0-9_-]*)\b/gi)) {
       if (!validLabels.has(match[1].toLowerCase())) {
         errors.push(`${source}: fictional or inactive sample label squad:${match[1]} is forbidden`);

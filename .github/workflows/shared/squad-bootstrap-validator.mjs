@@ -463,7 +463,7 @@ export function createBootstrapResearchBody(issueBodyText) {
     throw new Error(`Cannot derive bootstrap research:\n${[...new Set(errors)].map((error) => `- ${error}`).join('\n')}`);
   }
 
-  const tableCell = (value) => String(value).replace(/\|/g, '\\|');
+  const tableCell = (value) => String(value).replace(/\\/g, '\\\\').replace(/\|/g, '\\|');
   const evidenceRows = proposals.map((proposal, index) => {
     const citation = `\`${tableCell(proposal.evidencePaths[0])}\``;
     return `| R${index + 1} | ${proposal.id} is a validated bootstrap proposal in the root issue body. | 🟡 | M | ${citation} |`;
