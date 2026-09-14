@@ -2,8 +2,8 @@
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import {
-  closeSync, constants, fstatSync, lstatSync, mkdirSync, mkdtempSync, openSync,
-  readFileSync, readdirSync, rmSync, writeFileSync,
+  constants, lstatSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync,
+  writeFileSync,
 } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { isAbsolute, join, relative, resolve } from 'node:path';
@@ -329,13 +329,10 @@ function readPatchText(directory) {
   if (files.some(name => /^aw.*\.bundle$/.test(name))) throw new Error('Bundle transport is not approved; use patch-format: am.');
   return files.filter(name => /^aw.*\.patch$/.test(name)).sort().map(name => {
     const path = join(directory, name);
-    const descriptor = openSync(path, constants.O_RDONLY | (constants.O_NOFOLLOW ?? 0));
-    try {
-      if (!fstatSync(descriptor).isFile()) throw new Error('Patch transport must be a regular file.');
-      return readFileSync(descriptor, 'utf8');
-    } finally {
-      closeSync(descriptor);
-    }
+    return readFileSync(path, {
+      encoding: 'utf8',
+      flag: constants.O_RDONLY | (constants.O_NOFOLLOW ?? 0),
+    });
   }).join('\n');
 }
 
