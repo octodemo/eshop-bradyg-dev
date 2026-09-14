@@ -1,0 +1,46 @@
+{
+  "agents": {
+    "lead": {
+      "created_at": "2026-09-14T23:42:53Z",
+      "persistent_name": "Lead",
+      "universe": "descriptive",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "backend": {
+      "created_at": "2026-09-14T23:42:53Z",
+      "persistent_name": "Backend",
+      "universe": "descriptive",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "frontend": {
+      "created_at": "2026-09-14T23:42:53Z",
+      "persistent_name": "Frontend",
+      "universe": "descriptive",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "devops": {
+      "created_at": "2026-09-14T23:42:53Z",
+      "persistent_name": "DevOps",
+      "universe": "descriptive",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "test": {
+      "created_at": "2026-09-14T23:42:53Z",
+      "persistent_name": "Test",
+      "universe": "descriptive",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "security": {
+      "created_at": "2026-09-14T23:42:53Z",
+      "persistent_name": "Security",
+      "universe": "descriptive",
+      "legacy_named": false,
+      "status": "active"
+    }
+  }
+}
