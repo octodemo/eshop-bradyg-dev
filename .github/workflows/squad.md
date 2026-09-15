@@ -371,7 +371,7 @@ safe-outputs:
   dispatch-workflow:
     workflows: [squad-implement-worker, squad-deps-worker, squad-review, squad-retro, squad-improvement-worker]
     max: 3
-source: bradygaster/squad/workflows/squad.md@92c3cb62e33a17e55db0fdd832188b5419f81444
+source: bradygaster/squad/workflows/squad.md@65db730ff638f31f40daf0b70dc749d17f6de155
 ---
 
 ## Planning Artifact Data Contract (all modes)
@@ -2548,7 +2548,7 @@ Full/last: `✅ Done`, state = Activated. Terminal — no next action needed.
 ## agent: `fact-checker`
 ---
 description: "Produces advisory Devil's Advocate evidence for plan validation"
-model: inherited
+model: auto
 ---
 
 Operate only in Fact Checker's Devil's Advocate mode. Review the complete
