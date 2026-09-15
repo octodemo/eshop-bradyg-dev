@@ -1,5 +1,5 @@
 ---
-source: bradygaster/squad/workflows/shared/builtins/ralph-charter.md@dev
+source: bradygaster/squad/workflows/shared/builtins/ralph-charter.md@2099faf51c08a912c359209447011b06decf0565
 ---
 # Ralph
 
