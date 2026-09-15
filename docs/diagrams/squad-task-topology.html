@@ -81,9 +81,8 @@
     <path d="M640 168 V256" class="connector"/>
     <path d="M640 212 H960 Q968 212 968 220 V256" class="connector"/>
 
-    <path d="M320 320 V372 Q320 380 312 380 H152 V432" class="connector"/>
-    <path d="M320 320 V432" class="connector"/>
-    <path d="M320 380 H488 Q496 380 496 388 V432" class="connector-failure"/>
+    <path d="M320 320 V380 M156 380 H404 M156 380 V432 M404 380 V432" class="connector"/>
+    <path d="M320 380 H652 V432" class="connector-failure"/>
 
     <rect x="560" y="112" width="160" height="56" rx="6" class="node"/>
     <text x="640" y="136" class="name" text-anchor="middle">Activated program</text>
@@ -104,25 +103,25 @@
     <text x="968" y="296" class="name" text-anchor="middle">Endpoint scheme</text>
     <text x="968" y="312" class="sub" text-anchor="middle">four DataRow cases</text>
 
-    <rect x="60" y="432" width="184" height="64" rx="6" class="leaf"/>
-    <text x="76" y="452" class="tag">ON PASS · #23</text>
-    <text x="152" y="472" class="name" text-anchor="middle">Resource existence</text>
-    <text x="152" y="488" class="sub" text-anchor="middle">all top-level resources</text>
+    <rect x="64" y="432" width="184" height="64" rx="6" class="leaf"/>
+    <text x="80" y="452" class="tag">ON PASS · #23</text>
+    <text x="156" y="472" class="name" text-anchor="middle">Resource existence</text>
+    <text x="156" y="488" class="sub" text-anchor="middle">all top-level resources</text>
 
-    <rect x="228" y="432" width="184" height="64" rx="6" class="leaf"/>
-    <text x="244" y="452" class="tag">ON PASS · #24</text>
-    <text x="320" y="472" class="name" text-anchor="middle">WaitFor ordering</text>
-    <text x="320" y="488" class="sub" text-anchor="middle">orderingdb dependencies</text>
+    <rect x="312" y="432" width="184" height="64" rx="6" class="leaf"/>
+    <text x="328" y="452" class="tag">ON PASS · #24</text>
+    <text x="404" y="472" class="name" text-anchor="middle">WaitFor ordering</text>
+    <text x="404" y="488" class="sub" text-anchor="middle">orderingdb dependencies</text>
 
-    <rect x="404" y="432" width="184" height="64" rx="6" class="optional"/>
-    <text x="420" y="452" class="tag-accent">ON FAILURE</text>
-    <text x="496" y="472" class="name" text-anchor="middle">Stop implementation</text>
-    <text x="496" y="488" class="sub" text-anchor="middle">return plan for revision</text>
+    <rect x="560" y="432" width="184" height="64" rx="6" class="optional"/>
+    <text x="576" y="452" class="tag-accent">ON FAILURE</text>
+    <text x="652" y="472" class="name" text-anchor="middle">Stop implementation</text>
+    <text x="652" y="488" class="sub" text-anchor="middle">return plan for revision</text>
 
-    <rect x="272" y="356" width="96" height="16" rx="2" class="paper"/>
-    <text x="320" y="367" class="tag" text-anchor="middle">RESULT GATES</text>
-    <rect x="444" y="356" width="64" height="16" rx="2" class="paper"/>
-    <text x="476" y="367" class="tag-accent" text-anchor="middle">NO FALLBACK</text>
+    <rect x="256" y="356" width="96" height="16" rx="2" class="paper"/>
+    <text x="304" y="367" class="tag" text-anchor="middle">RESULT GATES</text>
+    <rect x="544" y="356" width="80" height="16" rx="2" class="paper"/>
+    <text x="584" y="367" class="tag-accent" text-anchor="middle">NO FALLBACK</text>
 
     <line x1="40" y1="568" x2="1240" y2="568" stroke="var(--rule)"/>
     <text x="40" y="596" class="eyebrow">LEGEND</text>
