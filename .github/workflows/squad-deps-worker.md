@@ -131,7 +131,7 @@ safe-outputs:
   add-comment:
     max: 3
     target: "*"
-source: bradygaster/squad/workflows/squad-deps-worker.md@92c3cb62e33a17e55db0fdd832188b5419f81444
+source: bradygaster/squad/workflows/squad-deps-worker.md@dev
 ---
 
 # Squad Dependency Worker

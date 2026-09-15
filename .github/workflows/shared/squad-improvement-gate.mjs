@@ -1,10 +1,7 @@
 // Approval is a live human comment, not a label, dispatch actor or cached verdict.
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
-import {
-  constants, lstatSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync,
-  writeFileSync,
-} from 'node:fs';
+import { lstatSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { isAbsolute, join, relative, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -329,10 +326,8 @@ function readPatchText(directory) {
   if (files.some(name => /^aw.*\.bundle$/.test(name))) throw new Error('Bundle transport is not approved; use patch-format: am.');
   return files.filter(name => /^aw.*\.patch$/.test(name)).sort().map(name => {
     const path = join(directory, name);
-    return readFileSync(path, {
-      encoding: 'utf8',
-      flag: constants.O_RDONLY | (constants.O_NOFOLLOW ?? 0),
-    });
+    if (!lstatSync(path).isFile()) throw new Error('Patch transport must be a regular file.');
+    return readFileSync(path, 'utf8');
   }).join('\n');
 }
 
@@ -416,8 +411,6 @@ async function cli() {
   } else {
     const index = process.argv.indexOf('--output');
     if (index < 0 || !process.argv[index + 1]) throw new Error('--output is required.');
-    // The workflow supplies a fixed repository-local path, and every field in result is validated above.
-    // lgtm[js/http-to-file-access]
     writeFileSync(process.argv[index + 1], `${JSON.stringify(result, null, 2)}\n`);
   }
 }

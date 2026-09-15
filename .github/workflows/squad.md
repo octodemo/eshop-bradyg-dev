@@ -371,7 +371,7 @@ safe-outputs:
   dispatch-workflow:
     workflows: [squad-implement-worker, squad-deps-worker, squad-review, squad-retro, squad-improvement-worker]
     max: 3
-source: bradygaster/squad/workflows/squad.md@dev
+source: bradygaster/squad/workflows/squad.md@92c3cb62e33a17e55db0fdd832188b5419f81444
 ---
 
 ## Planning Artifact Data Contract (all modes)
