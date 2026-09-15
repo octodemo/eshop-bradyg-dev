@@ -2,6 +2,10 @@
 
 The journey began without a human-authored backlog item. In [Squad Bootstrap run 34909790188](https://github.com/octodemo/eshop-bradyg-dev/actions/runs/34909790188), Squad analyzed the `octodemo/eshop-bradyg-dev` repository and generated two review surfaces: [issue #4](https://github.com/octodemo/eshop-bradyg-dev/issues/4), containing repository-derived research proposals, and [Cast PR #3](https://github.com/octodemo/eshop-bradyg-dev/pull/3), containing a proposed team roster, charters, and routing configuration. The pull request was created as a normal pull request, not a GitHub draft, even though its content explicitly described the Cast as a proposal requiring human review.
 
+![Swimlane diagram of the Squad planning journey from repository analysis through human steering and task assignment to draft PR creation](diagrams/squad-planning-journey.svg)
+
+*Squad generated evidence, structure, and durable work artifacts. The human narrowed the opportunity, selected and revised the technical strategy, approved the plan, and authorized the first coding task.*
+
 That distinction mattered. Issue #4 opened with a clear boundary: the opportunities were “proposals, not approved work,” and nothing had been implemented, merged, or authorized. Of five suggested areas, P1 focused on expanding test coverage for the .NET Aspire resource graph in `src/eShop.AppHost/Program.cs`. The hypothesis was practical: missing resources, references, connection strings, or startup-order dependencies should be caught during builds rather than discovered when the distributed application runs.
 
 The first consequential human action was to narrow the machine-generated opportunity set. Brady issued:
@@ -23,6 +27,10 @@ From there, Squad handled the mechanical transformation from findings to structu
 The central steering moment came several hours later. With `/squad plan program revise`, Brady instructed Squad to preserve Option A only conditionally; replace the standalone decision record with a compile-level implementation spike; stop and return the plan for revision if the spike failed; and leave the unrelated mobile-BFF and endpoint-scheme tests unblocked. [Revision run 34937726709](https://github.com/octodemo/eshop-bradyg-dev/actions/runs/34937726709) produced a new authoritative program plan with exactly that shape. This was not a cosmetic edit. A human changed the risk model, failure behavior, and dependency graph while retaining the agents' useful research.
 
 Squad then regenerated the task breakdown in [implementation run 34938759188](https://github.com/octodemo/eshop-bradyg-dev/actions/runs/34938759188). The plan now started with a compile-level spike that had to build and inspect the application model without starting containers. Resource-existence and `WaitFor` tests depended on that proof; mobile-BFF route coverage and `ShouldUseHttpForEndpoints` tests remained independent.
+
+![Tree diagram of the activated AppHost test tasks, showing the compile-level spike gating two model tests while two extension-level tests remain independent](diagrams/squad-task-topology.svg)
+
+*The revised topology placed uncertainty where it belonged: issue #22 became a technical gate for issues #23 and #24, with an explicit stop-and-revise path. Issues #25 and #26 remained independent.*
 
 [Validation run 34949834507](https://github.com/octodemo/eshop-bradyg-dev/actions/runs/34949834507) passed the plan, but did not simply rubber-stamp it. It reported four meaningful, non-blocking warnings: timebox the spike and make the fallback explicit; avoid tautological `WaitFor` assertions by using an independently authored expectation or mutation; verify that relocating endpoint-scheme logic changes no behavior; and track the roughly 13 mobile-BFF routes left outside the initial two-route sample. The validator also called out the single Test-agent bottleneck and the deliberate absence of runtime end-to-end coverage as accepted risks.
 
