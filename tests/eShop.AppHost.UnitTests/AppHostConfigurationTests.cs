@@ -1,12 +1,26 @@
 using Aspire.Hosting;
+using Aspire.Hosting.ApplicationModel;
+using Aspire.Hosting.Testing;
 using eShop.AppHost;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace eShop.AppHost.UnitTests;
 
 [TestClass]
 public class AppHostConfigurationTests
 {
+    [TestMethod]
+    public async Task ProgramBuildsInspectableApplicationModel()
+    {
+        var builder = await DistributedApplicationTestingBuilder.CreateAsync<Projects.eShop_AppHost>();
+
+        await using var app = await builder.BuildAsync();
+
+        var model = app.Services.GetRequiredService<DistributedApplicationModel>();
+        Assert.IsNotEmpty(model.Resources.ToArray());
+    }
+
     [TestMethod]
     [DataRow(null, false)]
     [DataRow("", false)]
