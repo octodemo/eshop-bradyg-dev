@@ -370,7 +370,7 @@ safe-outputs:
                   body,
                 });
               }
-source: bradygaster/squad/workflows/squad-retro.md@92c3cb62e33a17e55db0fdd832188b5419f81444
+source: bradygaster/squad/workflows/squad-retro.md@dev
 ---
 
 # Squad Retro
