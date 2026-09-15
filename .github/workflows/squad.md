@@ -371,7 +371,7 @@ safe-outputs:
   dispatch-workflow:
     workflows: [squad-implement-worker, squad-deps-worker, squad-review, squad-retro, squad-improvement-worker]
     max: 3
-source: bradygaster/squad/workflows/squad.md@8c83511b0b957044f4bd3a9551190767e4fb159f
+source: bradygaster/squad/workflows/squad.md@2099faf51c08a912c359209447011b06decf0565
 ---
 
 ## Planning Artifact Data Contract (all modes)
@@ -397,6 +397,8 @@ matching the exact structured fields, and choosing the newest match.
 
 For each lifecycle-state write, call `upsert_lifecycle_state` once with the
 complete body. It updates the newest trusted tracker or creates the first one.
+For nonterminal states, `Next action` MUST be only the backticked `/squad`
+command; put prose elsewhere. `Activated` may use terminal prose instead.
 
 # Squad — `/squad` Slash Command
 
@@ -2555,7 +2557,8 @@ accepted label — that manufactures a defect.
 ##### Step 5: Update Lifecycle
 
 Phase: `🔄 Phase {N} of {total} activated`. Next: accept/activate next phase.
-Full/last: `✅ Done`, state = Activated. Terminal — no next action needed.
+Full/last: `✅ Done`, state = Activated, last command = invoked
+`/squad plan activate`. Terminal — use terminal prose for Next action.
 
 ## end skill: `squad-plan-activate`
 

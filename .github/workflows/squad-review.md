@@ -57,7 +57,7 @@ safe-outputs:
     max: 1
     target: "${{ github.event.inputs.issue_number || github.event.pull_request.number }}"
     allowed-events: [COMMENT, REQUEST_CHANGES]
-source: bradygaster/squad/workflows/squad-review.md@8c83511b0b957044f4bd3a9551190767e4fb159f
+source: bradygaster/squad/workflows/squad-review.md@2099faf51c08a912c359209447011b06decf0565
 ---
 
 # Squad Review
