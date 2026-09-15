@@ -14,6 +14,13 @@
           --rule: #dfe0e4;
           --accent: #eb6c36;
           --accent-tint: #fbeee8;
+          --font-title: 400 32px 'Instrument Serif', serif;
+          --font-node: 600 12px 'Geist', sans-serif;
+          --font-technical: 400 9px 'Geist Mono', monospace;
+          --font-label: 500 8px 'Geist Mono', monospace;
+          --font-caption: 400 9px 'Geist', sans-serif;
+          --tracking-eyebrow: 1.5px;
+          --tracking-label: 0.7px;
         }
         @media (prefers-color-scheme: dark) {
           :root {
@@ -35,13 +42,13 @@
         .leaf { fill: var(--paper-2); stroke: var(--muted); stroke-width: 0.8; }
         .focal { fill: var(--accent-tint); stroke: var(--accent); stroke-width: 1.2; }
         .optional { fill: var(--paper); stroke: var(--accent); stroke-width: 1; stroke-dasharray: 5 4; }
-        .title { fill: var(--ink); font: 400 32px 'Instrument Serif', serif; }
-        .eyebrow { fill: var(--muted); font: 500 8px 'Geist Mono', monospace; letter-spacing: 1.5px; }
-        .name { fill: var(--ink); font: 600 12px 'Geist', sans-serif; }
-        .sub { fill: var(--soft); font: 400 9px 'Geist Mono', monospace; }
-        .tag { fill: var(--muted); font: 500 8px 'Geist Mono', monospace; letter-spacing: 0.7px; }
-        .tag-accent { fill: var(--accent); font: 500 8px 'Geist Mono', monospace; letter-spacing: 0.7px; }
-        .legend { fill: var(--muted); font: 400 9px 'Geist', sans-serif; }
+        .title { fill: var(--ink); font: var(--font-title); }
+        .eyebrow { fill: var(--muted); font: var(--font-label); letter-spacing: var(--tracking-eyebrow); }
+        .name { fill: var(--ink); font: var(--font-node); }
+        .sub { fill: var(--soft); font: var(--font-technical); }
+        .tag { fill: var(--muted); font: var(--font-label); letter-spacing: var(--tracking-label); }
+        .tag-accent { fill: var(--accent); font: var(--font-label); letter-spacing: var(--tracking-label); }
+        .legend { fill: var(--muted); font: var(--font-caption); }
       </style>
       <marker id="squad-topology-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
         <polygon points="0 0, 8 3, 0 6" fill="var(--muted)"/>

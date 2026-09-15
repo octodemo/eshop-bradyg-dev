@@ -35,6 +35,13 @@
           --accent: #eb6c36;
           --accent-tint: #fbeee8;
           --link: #2e5aa8;
+          --font-title: 400 32px 'Instrument Serif', serif;
+          --font-node: 600 12px 'Geist', sans-serif;
+          --font-technical: 400 9px 'Geist Mono', monospace;
+          --font-label: 500 8px 'Geist Mono', monospace;
+          --font-caption: 400 9px 'Geist', sans-serif;
+          --tracking-eyebrow: 1.5px;
+          --tracking-label: 0.7px;
         }
         @media (prefers-color-scheme: dark) {
           :root {
@@ -59,14 +66,13 @@
         .connector-accent { fill: none; stroke: var(--accent); stroke-width: 1.5; }
         .node { fill: var(--node); stroke: var(--ink); stroke-width: 1; }
         .node-focal { fill: var(--accent-tint); stroke: var(--accent); stroke-width: 1.2; }
-        .title { fill: var(--ink); font: 400 32px 'Instrument Serif', serif; }
-        .eyebrow { fill: var(--muted); font: 500 8px 'Geist Mono', monospace; letter-spacing: 1.5px; }
-        .lane-label { fill: var(--muted); font: 500 10px 'Geist Mono', monospace; letter-spacing: 1.8px; }
-        .node-name { fill: var(--ink); font: 600 12px 'Geist', sans-serif; }
-        .node-sub { fill: var(--soft); font: 400 9px 'Geist Mono', monospace; }
-        .edge-label { fill: var(--muted); font: 500 8px 'Geist Mono', monospace; letter-spacing: 0.6px; }
-        .edge-label-accent { fill: var(--accent); font: 500 8px 'Geist Mono', monospace; letter-spacing: 0.6px; }
-        .legend { fill: var(--muted); font: 400 9px 'Geist', sans-serif; }
+        .title { fill: var(--ink); font: var(--font-title); }
+        .eyebrow, .lane-label { fill: var(--muted); font: var(--font-label); letter-spacing: var(--tracking-eyebrow); }
+        .node-name { fill: var(--ink); font: var(--font-node); }
+        .node-sub { fill: var(--soft); font: var(--font-technical); }
+        .edge-label { fill: var(--muted); font: var(--font-label); letter-spacing: var(--tracking-label); }
+        .edge-label-accent { fill: var(--accent); font: var(--font-label); letter-spacing: var(--tracking-label); }
+        .legend { fill: var(--muted); font: var(--font-caption); }
       </style>
       <marker id="squad-journey-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
         <polygon points="0 0, 8 3, 0 6" fill="var(--muted)"/>
