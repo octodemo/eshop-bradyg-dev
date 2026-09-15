@@ -43,6 +43,7 @@ concurrency:
 network:
   allowed:
     - defaults
+    - api.nuget.org
 imports:
   - shared/squad.md
   - shared/squad-planning-ontology.md
