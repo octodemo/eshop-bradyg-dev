@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>From repository analysis to an assigned coding task</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #f5f5f5;
+    }
+    svg { width: min(100%, 1280px); height: auto; display: block; }
+  </style>
+</head>
+<body>
+  <svg viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="squad-journey-title squad-journey-desc">
+    <title id="squad-journey-title">From repository analysis to an assigned coding task</title>
+    <desc id="squad-journey-desc">A swimlane diagram showing Squad analyzing the repository and generating plans, a human focusing the research, choosing and revising the risk strategy, accepting and activating the plan, and GitHub Copilot opening a draft pull request after task assignment.</desc>
+    <defs>
+      <style>
+        :root {
+          --paper: #f5f5f5;
+          --paper-2: #ececec;
+          --node: #ffffff;
+          --ink: #2d3142;
+          --muted: #4f5d75;
+          --soft: #7a8399;
+          --rule: #dfe0e4;
+          --rule-strong: #bfc0c0;
+          --accent: #eb6c36;
+          --accent-tint: #fbeee8;
+          --link: #2e5aa8;
+        }
+        @media (prefers-color-scheme: dark) {
+          :root {
+            --paper: #2d3142;
+            --paper-2: #393e53;
+            --node: #393e53;
+            --ink: #f5f5f5;
+            --muted: #bfc0c0;
+            --soft: #8e98ac;
+            --rule: #484d61;
+            --rule-strong: #62677a;
+            --accent: #f08a59;
+            --accent-tint: #493b3e;
+            --link: #6a95d8;
+          }
+        }
+        .paper { fill: var(--paper); }
+        .lane-alt { fill: var(--paper-2); opacity: 0.42; }
+        .rule { stroke: var(--rule); }
+        .rule-strong { stroke: var(--rule-strong); }
+        .connector { fill: none; stroke: var(--muted); stroke-width: 1.2; }
+        .connector-accent { fill: none; stroke: var(--accent); stroke-width: 1.5; }
+        .node { fill: var(--node); stroke: var(--ink); stroke-width: 1; }
+        .node-focal { fill: var(--accent-tint); stroke: var(--accent); stroke-width: 1.2; }
+        .title { fill: var(--ink); font: 400 32px 'Instrument Serif', serif; }
+        .eyebrow { fill: var(--muted); font: 500 8px 'Geist Mono', monospace; letter-spacing: 1.5px; }
+        .lane-label { fill: var(--muted); font: 500 10px 'Geist Mono', monospace; letter-spacing: 1.8px; }
+        .node-name { fill: var(--ink); font: 600 12px 'Geist', sans-serif; }
+        .node-sub { fill: var(--soft); font: 400 9px 'Geist Mono', monospace; }
+        .edge-label { fill: var(--muted); font: 500 8px 'Geist Mono', monospace; letter-spacing: 0.6px; }
+        .edge-label-accent { fill: var(--accent); font: 500 8px 'Geist Mono', monospace; letter-spacing: 0.6px; }
+        .legend { fill: var(--muted); font: 400 9px 'Geist', sans-serif; }
+      </style>
+      <marker id="squad-journey-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="var(--muted)"/>
+      </marker>
+      <marker id="squad-journey-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="var(--accent)"/>
+      </marker>
+      <marker id="squad-journey-arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="var(--link)"/>
+      </marker>
+    </defs>
+
+    <rect width="1280" height="720" class="paper"/>
+    <text x="40" y="52" class="eyebrow">SWIMLANE · SQUAD PLANNING JOURNEY</text>
+    <text x="40" y="88" class="title">From repository analysis to an assigned coding task</text>
+
+    <rect x="40" y="112" width="1200" height="160" class="lane-alt"/>
+    <rect x="40" y="432" width="1200" height="160" class="lane-alt"/>
+    <line x1="40" y1="112" x2="1240" y2="112" class="rule-strong"/>
+    <line x1="40" y1="272" x2="1240" y2="272" class="rule"/>
+    <line x1="40" y1="432" x2="1240" y2="432" class="rule"/>
+    <line x1="40" y1="592" x2="1240" y2="592" class="rule-strong"/>
+    <line x1="152" y1="112" x2="152" y2="592" class="rule-strong"/>
+
+    <text x="64" y="196" class="lane-label">SQUAD</text>
+    <text x="64" y="356" class="lane-label">HUMAN</text>
+    <text x="64" y="516" class="lane-label">COPILOT</text>
+
+    <path d="M272 192 H280 Q288 192 288 200 V320 Q288 328 296 328 H304" class="connector" marker-end="url(#squad-journey-arrow)"/>
+    <path d="M408 328 H416 Q424 328 424 320 V200 Q424 192 432 192 H440" class="connector" marker-end="url(#squad-journey-arrow)"/>
+    <path d="M544 192 H552 Q560 192 560 200 V320 Q560 328 568 328 H576" class="connector" marker-end="url(#squad-journey-arrow)"/>
+    <path d="M680 328 H688 Q696 328 696 320 V200 Q696 192 704 192 H712" class="connector" marker-end="url(#squad-journey-arrow)"/>
+    <path d="M816 192 H824 Q832 192 832 200 V320 Q832 328 840 328 H848" class="connector-accent" marker-end="url(#squad-journey-arrow-accent)"/>
+    <path d="M952 328 H960 Q968 328 968 320 V200 Q968 192 976 192 H984" class="connector" marker-end="url(#squad-journey-arrow)"/>
+    <path d="M1088 192 H1096 Q1104 192 1104 200 V320 Q1104 328 1112 328 H1120" class="connector" marker-end="url(#squad-journey-arrow)"/>
+    <path d="M1176 356 V464" class="connector" marker-end="url(#squad-journey-arrow)"/>
+
+    <rect x="278" y="238" width="56" height="16" rx="2" class="paper"/>
+    <text x="306" y="249" class="edge-label" text-anchor="middle">FOCUS P1</text>
+    <rect x="550" y="238" width="60" height="16" rx="2" class="paper"/>
+    <text x="580" y="249" class="edge-label" text-anchor="middle">OPTION A</text>
+    <rect x="818" y="238" width="72" height="16" rx="2" class="paper"/>
+    <text x="854" y="249" class="edge-label-accent" text-anchor="middle">REVISE RISK</text>
+    <rect x="1090" y="238" width="68" height="16" rx="2" class="paper"/>
+    <text x="1124" y="249" class="edge-label" text-anchor="middle">AUTHORIZE</text>
+
+    <rect x="168" y="164" width="104" height="56" rx="6" class="node"/>
+    <text x="220" y="187" class="node-name" text-anchor="middle">Analyze repo</text>
+    <text x="220" y="205" class="node-sub" text-anchor="middle">issue #4 · PR #3</text>
+
+    <rect x="304" y="300" width="104" height="56" rx="6" class="node"/>
+    <text x="356" y="323" class="node-name" text-anchor="middle">Focus research</text>
+    <text x="356" y="341" class="node-sub" text-anchor="middle">proposal P1</text>
+
+    <rect x="440" y="164" width="104" height="56" rx="6" class="node"/>
+    <text x="492" y="187" class="node-name" text-anchor="middle">Research + plan</text>
+    <text x="492" y="205" class="node-sub" text-anchor="middle">triage · program</text>
+
+    <rect x="576" y="300" width="104" height="56" rx="6" class="node"/>
+    <text x="628" y="323" class="node-name" text-anchor="middle">Choose strategy</text>
+    <text x="628" y="341" class="node-sub" text-anchor="middle">test Program.cs</text>
+
+    <rect x="712" y="164" width="104" height="56" rx="6" class="node"/>
+    <text x="764" y="187" class="node-name" text-anchor="middle">Generate tasks</text>
+    <text x="764" y="205" class="node-sub" text-anchor="middle">initial breakdown</text>
+
+    <rect x="848" y="300" width="104" height="56" rx="6" class="node-focal"/>
+    <text x="900" y="323" class="node-name" text-anchor="middle">Change risk model</text>
+    <text x="900" y="341" class="node-sub" text-anchor="middle">spike or revise</text>
+
+    <rect x="984" y="164" width="104" height="56" rx="6" class="node"/>
+    <text x="1036" y="187" class="node-name" text-anchor="middle">Revise + validate</text>
+    <text x="1036" y="205" class="node-sub" text-anchor="middle">warnings retained</text>
+
+    <rect x="1120" y="300" width="112" height="56" rx="6" class="node"/>
+    <text x="1176" y="323" class="node-name" text-anchor="middle">Accept + activate</text>
+    <text x="1176" y="341" class="node-sub" text-anchor="middle">assign issue #22</text>
+
+    <rect x="1120" y="464" width="112" height="56" rx="6" class="node"/>
+    <text x="1176" y="487" class="node-name" text-anchor="middle">Open draft PR</text>
+    <text x="1176" y="505" class="node-sub" text-anchor="middle">PR #28 · 8 seconds</text>
+
+    <line x1="40" y1="628" x2="1240" y2="628" class="rule"/>
+    <text x="40" y="652" class="eyebrow">LEGEND</text>
+    <rect x="128" y="642" width="16" height="12" rx="2" class="node"/>
+    <text x="152" y="652" class="legend">Agent or human action</text>
+    <rect x="304" y="642" width="16" height="12" rx="2" class="node-focal"/>
+    <text x="328" y="652" class="legend">Consequential steering decision</text>
+    <line x1="544" y1="648" x2="580" y2="648" class="connector" marker-end="url(#squad-journey-arrow)"/>
+    <text x="592" y="652" class="legend">Handoff</text>
+    <line x1="684" y1="648" x2="720" y2="648" class="connector-accent" marker-end="url(#squad-journey-arrow-accent)"/>
+    <text x="732" y="652" class="legend">Risk-model revision</text>
+    <text x="40" y="688" class="legend">Agents generated evidence and structure; the human narrowed scope, chose the strategy, changed failure behavior, and authorized implementation.</text>
+  </svg>
+</body>
+</html>

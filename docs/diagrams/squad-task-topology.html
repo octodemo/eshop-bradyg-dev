@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activated AppHost test task topology</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #f5f5f5;
+    }
+    svg { width: min(100%, 1280px); height: auto; display: block; }
+  </style>
+</head>
+<body>
+  <svg viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="squad-topology-title squad-topology-desc">
+    <title id="squad-topology-title">Activated AppHost test task topology</title>
+    <desc id="squad-topology-desc">A tree diagram showing issue 22 as a compile-level spike that gates resource-existence issue 23 and WaitFor dependency issue 24. Mobile BFF route issue 25 and endpoint-scheme issue 26 are independent. If the spike fails, implementation stops and the plan returns for revision.</desc>
+    <defs>
+      <style>
+        :root {
+          --paper: #f5f5f5;
+          --paper-2: #ececec;
+          --node: #ffffff;
+          --ink: #2d3142;
+          --muted: #4f5d75;
+          --soft: #7a8399;
+          --rule: #dfe0e4;
+          --accent: #eb6c36;
+          --accent-tint: #fbeee8;
+        }
+        @media (prefers-color-scheme: dark) {
+          :root {
+            --paper: #2d3142;
+            --paper-2: #393e53;
+            --node: #393e53;
+            --ink: #f5f5f5;
+            --muted: #bfc0c0;
+            --soft: #8e98ac;
+            --rule: #484d61;
+            --accent: #f08a59;
+            --accent-tint: #493b3e;
+          }
+        }
+        .paper { fill: var(--paper); }
+        .connector { fill: none; stroke: var(--muted); stroke-width: 1.2; }
+        .connector-failure { fill: none; stroke: var(--accent); stroke-width: 1.2; stroke-dasharray: 5 4; }
+        .node { fill: var(--node); stroke: var(--ink); stroke-width: 1; }
+        .leaf { fill: var(--paper-2); stroke: var(--muted); stroke-width: 0.8; }
+        .focal { fill: var(--accent-tint); stroke: var(--accent); stroke-width: 1.2; }
+        .optional { fill: var(--paper); stroke: var(--accent); stroke-width: 1; stroke-dasharray: 5 4; }
+        .title { fill: var(--ink); font: 400 32px 'Instrument Serif', serif; }
+        .eyebrow { fill: var(--muted); font: 500 8px 'Geist Mono', monospace; letter-spacing: 1.5px; }
+        .name { fill: var(--ink); font: 600 12px 'Geist', sans-serif; }
+        .sub { fill: var(--soft); font: 400 9px 'Geist Mono', monospace; }
+        .tag { fill: var(--muted); font: 500 8px 'Geist Mono', monospace; letter-spacing: 0.7px; }
+        .tag-accent { fill: var(--accent); font: 500 8px 'Geist Mono', monospace; letter-spacing: 0.7px; }
+        .legend { fill: var(--muted); font: 400 9px 'Geist', sans-serif; }
+      </style>
+      <marker id="squad-topology-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="var(--muted)"/>
+      </marker>
+      <marker id="squad-topology-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="var(--accent)"/>
+      </marker>
+      <marker id="squad-topology-arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="var(--muted)"/>
+      </marker>
+    </defs>
+
+    <rect width="1280" height="720" class="paper"/>
+    <text x="40" y="52" class="eyebrow">TREE · REVISED IMPLEMENTATION PLAN</text>
+    <text x="40" y="88" class="title">Activated AppHost test task topology</text>
+
+    <path d="M640 168 V204 Q640 212 632 212 H320 V256" class="connector"/>
+    <path d="M640 168 V256" class="connector"/>
+    <path d="M640 212 H960 Q968 212 968 220 V256" class="connector"/>
+
+    <path d="M320 320 V372 Q320 380 312 380 H152 V432" class="connector"/>
+    <path d="M320 320 V432" class="connector"/>
+    <path d="M320 380 H488 Q496 380 496 388 V432" class="connector-failure"/>
+
+    <rect x="560" y="112" width="160" height="56" rx="6" class="node"/>
+    <text x="640" y="136" class="name" text-anchor="middle">Activated program</text>
+    <text x="640" y="154" class="sub" text-anchor="middle">issues #22–#26</text>
+
+    <rect x="228" y="256" width="184" height="64" rx="6" class="focal"/>
+    <text x="244" y="276" class="tag-accent">GATE · #22</text>
+    <text x="320" y="296" class="name" text-anchor="middle">Compile-level spike</text>
+    <text x="320" y="312" class="sub" text-anchor="middle">inspect model · no containers</text>
+
+    <rect x="548" y="256" width="184" height="64" rx="6" class="leaf"/>
+    <text x="564" y="276" class="tag">INDEPENDENT · #25</text>
+    <text x="640" y="296" class="name" text-anchor="middle">Mobile BFF routes</text>
+    <text x="640" y="312" class="sub" text-anchor="middle">catalog + ordering YARP</text>
+
+    <rect x="876" y="256" width="184" height="64" rx="6" class="leaf"/>
+    <text x="892" y="276" class="tag">INDEPENDENT · #26</text>
+    <text x="968" y="296" class="name" text-anchor="middle">Endpoint scheme</text>
+    <text x="968" y="312" class="sub" text-anchor="middle">four DataRow cases</text>
+
+    <rect x="60" y="432" width="184" height="64" rx="6" class="leaf"/>
+    <text x="76" y="452" class="tag">ON PASS · #23</text>
+    <text x="152" y="472" class="name" text-anchor="middle">Resource existence</text>
+    <text x="152" y="488" class="sub" text-anchor="middle">all top-level resources</text>
+
+    <rect x="228" y="432" width="184" height="64" rx="6" class="leaf"/>
+    <text x="244" y="452" class="tag">ON PASS · #24</text>
+    <text x="320" y="472" class="name" text-anchor="middle">WaitFor ordering</text>
+    <text x="320" y="488" class="sub" text-anchor="middle">orderingdb dependencies</text>
+
+    <rect x="404" y="432" width="184" height="64" rx="6" class="optional"/>
+    <text x="420" y="452" class="tag-accent">ON FAILURE</text>
+    <text x="496" y="472" class="name" text-anchor="middle">Stop implementation</text>
+    <text x="496" y="488" class="sub" text-anchor="middle">return plan for revision</text>
+
+    <rect x="272" y="356" width="96" height="16" rx="2" class="paper"/>
+    <text x="320" y="367" class="tag" text-anchor="middle">RESULT GATES</text>
+    <rect x="444" y="356" width="64" height="16" rx="2" class="paper"/>
+    <text x="476" y="367" class="tag-accent" text-anchor="middle">NO FALLBACK</text>
+
+    <line x1="40" y1="568" x2="1240" y2="568" stroke="var(--rule)"/>
+    <text x="40" y="596" class="eyebrow">LEGEND</text>
+    <rect x="128" y="586" width="16" height="12" rx="2" class="focal"/>
+    <text x="152" y="596" class="legend">Risk-bearing gate</text>
+    <rect x="264" y="586" width="16" height="12" rx="2" class="leaf"/>
+    <text x="288" y="596" class="legend">Executable task</text>
+    <rect x="400" y="586" width="16" height="12" rx="2" class="optional"/>
+    <text x="424" y="596" class="legend">Explicit failure behavior</text>
+
+    <text x="40" y="640" class="legend">The revision moved uncertainty into #22 instead of turning the decision into a documentation prerequisite.</text>
+    <text x="40" y="662" class="legend">Only #23 and #24 wait for proof that DistributedApplicationTestingBuilder can inspect Program.cs without starting containers.</text>
+    <text x="40" y="684" class="legend">Issues #25 and #26 can proceed independently, preserving useful parallelism if the spike needs another planning pass.</text>
+  </svg>
+</body>
+</html>
