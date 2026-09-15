@@ -495,7 +495,7 @@ safe-outputs:
                   body: researchBody,
                 });
               }
-source: bradygaster/squad/workflows/squad-bootstrap.md@92c3cb62e33a17e55db0fdd832188b5419f81444
+source: bradygaster/squad/workflows/squad-bootstrap.md@8c83511b0b957044f4bd3a9551190767e4fb159f
 ---
 
 # Automatic Squad Bootstrap

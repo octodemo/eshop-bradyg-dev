@@ -371,7 +371,7 @@ safe-outputs:
   dispatch-workflow:
     workflows: [squad-implement-worker, squad-deps-worker, squad-review, squad-retro, squad-improvement-worker]
     max: 3
-source: bradygaster/squad/workflows/squad.md@92c3cb62e33a17e55db0fdd832188b5419f81444
+source: bradygaster/squad/workflows/squad.md@8c83511b0b957044f4bd3a9551190767e4fb159f
 ---
 
 ## Planning Artifact Data Contract (all modes)
@@ -2169,7 +2169,21 @@ acceptance, and validator-owned synthesis.
 
 ##### Step 4: Update Lifecycle
 
-Set Validation = `✅ Done` or `❌ Failed`. Next on pass: `/squad plan accept scope`. On fail: fix + re-run.
+Set Validation = `✅ Done` or `❌ Failed`. Next on pass:
+`/squad plan accept scope`. The lifecycle field MUST be exactly this on pass:
+
+```markdown
+**Next action:** `/squad plan accept scope`
+```
+
+Or exactly this on fail:
+
+```markdown
+**Next action:** `/squad plan validate`
+```
+
+The backticked command must be the entire field value; put remediation or retry
+context in a separate `**Guidance:**` field.
 
 ##### Step 5: Surface Next Action
 
@@ -2548,7 +2562,7 @@ Full/last: `✅ Done`, state = Activated. Terminal — no next action needed.
 ## agent: `fact-checker`
 ---
 description: "Produces advisory Devil's Advocate evidence for plan validation"
-model: inherited
+model: auto
 ---
 
 Operate only in Fact Checker's Devil's Advocate mode. Review the complete
